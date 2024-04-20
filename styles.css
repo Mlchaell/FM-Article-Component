@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+:root {
+  --dark-gray-blue: hsl(217, 19%, 35%);
+  --dark-blue: hsl(214, 17%, 51%);
+  --gray-blue: hsl(212, 23%, 69%);
+  --light-gray-blue: hsl(210, 46%, 95%);
+
+  --ff-main: "Manrope", sans-serif;
+  --fw-reg: 500;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+}
+
+/* CSS Reset: https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 
+================
+Main CSS
+================
+*/
+
+/* 
+
+Used https://www.marcbacon.com/tools/clamp-calculator/ to generate clamps
+All based off of 428 or 728 min px
+Target values using rem set to a base of 10px
+
+*/
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-gray-blue);
+
+  font-family: var(--ff-main);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 1rem;
+
+  max-width: 73rem;
+  margin: 0 2rem;
+}
+
+.container > img {
+  max-width: 40%;
+  border-radius: 1rem 0 0 1rem;
+}
+
+@media only screen and (max-width: 728px) {
+  .container {
+    flex-direction: column;
+    margin: 0 2rem;
+    min-width: 20rem;
+    max-width: 60%;
+  }
+
+  .container > img {
+    max-width: 100%;
+  }
+}
+
+.article__content {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, -0.011rem + 1.124vw, 1rem);
+  padding: 2rem;
+  padding-top: clamp(1rem, -0.022rem + 2.247vw, 2rem);
+}
+
+.author {
+  display: flex;
+  justify-content: space-between;
+}
+
+.author__info {
+  display: flex;
+  gap: 1rem;
+}
+
+.author__pfp {
+  border-radius: 100%;
+  max-width: 3rem;
+}
+
+.author__name,
+.author__date {
+  font-size: clamp(1rem, 0.898rem + 0.225vw, 1.1rem);
+}
+
+.author__name {
+  color: var(--dark-gray-blue);
+  font-weight: var(--fw-bold);
+}
+
+.author__date {
+  color: var(--gray-blue);
+  font-weight: var(--fw-semi-bold);
+}
+
+.share-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border-radius: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--light-gray-blue);
+}
+
+.share-btn:hover {
+  cursor: pointer;
+  background-color: var(--gray-blue);
+}
+
+.share-btn > img {
+  min-width: 1.4rem;
+}
+
+.desktop-hover {
+  position: absolute;
+  top: 56%;
+  left: 74%;
+
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: var(--dark-gray-blue);
+  border-radius: 0.9rem;
+  padding: 1rem 2rem;
+  min-width: max-content;
+}
+
+.desktop-hover > p {
+  align-self: center;
+
+  color: #fff;
+  opacity: 75%;
+  letter-spacing: 2px;
+}
+
+.desktop-hover > button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* 
+================
+Helper Classes
+================
+*/
+
+.title {
+  color: var(--dark-gray-blue);
+  font-size: clamp(1.4rem, 1.029rem + 1.079vw, 2rem);
+  line-height: clamp(2rem, 1.587rem + 1.348vw, 2.8rem);
+}
+
+.text {
+  color: var(--dark-blue);
+  opacity: 75%;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: clamp(1.6rem, 1.191rem + 0.899vw, 2rem);
+}
