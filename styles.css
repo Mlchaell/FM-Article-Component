@@ -10,6 +10,8 @@
   --fw-reg: 500;
   --fw-semi-bold: 600;
   --fw-bold: 700;
+
+  --content-padding: 1rem 1.5rem 1.5rem 1.5rem;
 }
 
 /* CSS Reset: https://piccalil.li/blog/a-modern-css-reset/ */
@@ -92,124 +94,169 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--light-gray-blue);
-
   font-family: var(--ff-main);
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  background-color: #fff;
-  border-radius: 1rem;
-
-  max-width: 73rem;
-  margin: 0 2rem;
-}
-
-.container > img {
-  max-width: 40%;
-  border-radius: 1rem 0 0 1rem;
-}
-
-@media only screen and (max-width: 728px) {
-  .container {
-    flex-direction: column;
+.article {
+    background-color: #fff;
+    border-radius: 1rem;
     margin: 0 2rem;
-    min-width: 20rem;
-    max-width: 60%;
-  }
+}
 
-  .container > img {
-    max-width: 100%;
-  }
+.article > img {
+    border-radius: 1rem 1rem 0 0;
+    min-width: 100%;
+    max-height: 20rem;
 }
 
 .article__content {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  gap: clamp(0.5rem, -0.011rem + 1.124vw, 1rem);
-  padding: 2rem;
-  padding-top: clamp(1rem, -0.022rem + 2.247vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    padding: var(--content-padding);
 }
 
-.author {
-  display: flex;
-  justify-content: space-between;
+@media only screen and (min-width: 950px) {
+    .article {
+        display: flex;
+        max-width: 73rem;
+    }
+
+    .article > img {
+        border-radius: 1rem 0 0 1rem;
+        min-width: 30rem;
+        max-height: 100%;
+    }
+
+    .article__content-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .article__content {
+        padding: 2rem;
+    }
 }
 
-.author__info {
+/* 
+================
+Author Info
+================
+*/
+
+.content__author {
   display: flex;
-  gap: 1rem;
+  padding: var(--content-padding);
 }
 
-.author__pfp {
+.content__author > img {
+  max-width: 3.5rem;
   border-radius: 100%;
-  max-width: 3rem;
 }
 
-.author__name,
-.author__date {
-  font-size: clamp(1rem, 0.898rem + 0.225vw, 1.1rem);
-}
-
-.author__name {
-  color: var(--dark-gray-blue);
+.content__author .col :nth-child(1) {
   font-weight: var(--fw-bold);
+  color: var(--dark-gray-blue);
 }
 
-.author__date {
+.content__author .col :nth-child(2) {
   color: var(--gray-blue);
-  font-weight: var(--fw-semi-bold);
 }
 
-.share-btn {
+.content__author .col {
+  align-self: center;
+  padding-left: .8rem;
+}
+
+/* 
+================
+Share Modal
+================
+*/
+
+.share-modal {
+  display: flex;
+  gap: .5rem;
+
+  padding: var(--content-padding);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+
+  border-radius: 0 0 1rem 1rem;
+  background-color: var(--dark-gray-blue);
+}
+
+@media only screen and (min-width: 950px) {
+  .share-modal {
+    position: absolute;
+    top: -50%;
+    left: 70%;
+    transform: translateY(-10%);
+    border-radius: 1rem;
+  }
+}
+
+.share-modal > p {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.share-modal button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+/* 
+================
+Share Button
+================
+*/
+
+.content__footer-container {
+  position: relative;
+}
+
+.content__footer-container > button {
+  position: absolute;
+  left: 85%;
+  top: 25%;
+
   display: flex;
   justify-content: center;
-  align-items: center;
 
   border: none;
   border-radius: 100%;
+  min-width: 2.5rem;
   aspect-ratio: 1 / 1;
-  background-color: var(--light-gray-blue);
+  cursor: pointer;
 }
 
-.share-btn:hover {
-  cursor: pointer;
+.content__footer-container > button > svg {
+  align-self: center;
+}
+
+.is-sharing {
   background-color: var(--gray-blue);
 }
 
-.share-btn > img {
-  min-width: 1.4rem;
+.is-sharing svg {
+  fill: #fff;
 }
 
-.desktop-hover {
-  position: absolute;
-  top: 56%;
-  left: 74%;
-
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  background-color: var(--dark-gray-blue);
-  border-radius: 0.9rem;
-  padding: 1rem 2rem;
-  min-width: max-content;
+.not-sharing svg {
+  fill: #6E8098;
 }
 
-.desktop-hover > p {
-  align-self: center;
-
-  color: #fff;
-  opacity: 75%;
-  letter-spacing: 2px;
+.not-sharing:hover svg {
+  fill: #fff;
 }
 
-.desktop-hover > button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+.is-sharing:hover,
+.not-sharing:hover {
+  background-color: var(--dark-blue);
 }
 
 /* 
@@ -230,4 +277,17 @@ Helper Classes
   font-size: 1.1rem;
   font-weight: 500;
   line-height: clamp(1.6rem, 1.191rem + 0.899vw, 2rem);
+}
+
+.author-name {
+    color: var(--dark-gray-blue);
+    font-weight: var(--fw-bold);
+}
+
+.article-date {
+    color: var(--gray-blue);
+}
+
+.hidden {
+    display: none !important;
 }

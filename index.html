@@ -11,33 +11,37 @@
   <title>Frontend Mentor | Article preview component</title>
 </head>
 <body>
-  <div class="container">
-    <img class="article__img" src="images/drawers.jpg" alt="Article Image">
+  <div class="article">
+    <img src="images/drawers.jpg" alt="Article Image">
 
-    <div class="article__content">
-      <h3 class="title">Shift the overall look and feel by adding these wonderful touches to furtniture in your home</h3>
-      <p class="text">Ever been in a room and felt like something was missing? Perhaps iot felt slightly bare and uninviting. I've got some simple tips to help you make any room feel complete.</p>
-    
-      <div class="author">
-        <div class="author__info">
-          <img class="author__pfp" src="images/avatar-michelle.jpg" alt="Author Profile Picture">
+    <div class="article__content-container">
+      <div class="article__content">
+        <h3 class="title">Shift the overall look and feel by adding these wonderful touches to furniture in your home</h3>
+        <p class="text">Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I've got some simple tips to help you make any room feel complete.</p>
+      </div>
+
+      <div class="content__footer-container">
+        <button class="is-sharing"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="13"><path d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/></svg></button>
+
+        <div class="content__author">
+          <img src="images/avatar-michelle.jpg" alt="Author Profile Picture">
+
           <div class="col">
-            <p class="author__name">Michelle Appleton</p>
-            <p class="author__date">28 Jun 2020</p>
-          </div> 
-        </div>
+            <p>Michelle Appleton</p>
+            <p>28 Jun 2020</p>
+          </div>
+        </div>  
 
-        <div class="desktop-hover">
-          <p>SHARE</p>
-
+        <div class="share-modal">
+          <p>Share</p>
           <button><img src="images/icon-facebook.svg" alt="Facebook Share Button"></button>
           <button><img src="images/icon-twitter.svg" alt="Twitter Share Button"></button>
           <button><img src="images/icon-pinterest.svg" alt="Pinterest Share Button"></button>
         </div>
-
-        <button class="share-btn"><img src="images/icon-share.svg"></button>
-      </div> 
+      </div>
     </div>
   </div>
+
+  <script src="index.js"></script>
 </body>
 </html>
