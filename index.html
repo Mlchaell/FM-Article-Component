@@ -12,7 +12,7 @@
 </head>
 <body>
   <div class="article">
-    <img src="images/drawers.jpg" alt="Article Image">
+    <img src="images/drawers.jpg" alt="Green table full of drawers with a vase of wheat and two pictures aside a brown couch ">
 
     <div class="article__content-container">
       <div class="article__content">
@@ -21,8 +21,6 @@
       </div>
 
       <div class="content__footer-container">
-        <button class="is-sharing"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="13"><path d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/></svg></button>
-
         <div class="content__author">
           <img src="images/avatar-michelle.jpg" alt="Author Profile Picture">
 
@@ -32,12 +30,14 @@
           </div>
         </div>  
 
-        <div class="share-modal">
+        <div class="share-modal hidden">
           <p>Share</p>
-          <button><img src="images/icon-facebook.svg" alt="Facebook Share Button"></button>
-          <button><img src="images/icon-twitter.svg" alt="Twitter Share Button"></button>
-          <button><img src="images/icon-pinterest.svg" alt="Pinterest Share Button"></button>
+          <a href="https://facebook.com"><img src="images/icon-facebook.svg" alt="Share To Facebook"></a>
+          <a href="https://twitter.com"><img src="images/icon-twitter.svg" alt="Share To Twitter"></a>
+          <a href="https://pinterest.com"><img src="images/icon-pinterest.svg" alt="Share To Pinterest"></a>
         </div>
+
+        <button aria-expanded="false" aria-label="Share Options" class="article__share-btn"><svg aria-hidden xmlns="http://www.w3.org/2000/svg" width="15" height="13"><path d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/></svg></button>
       </div>
     </div>
   </div>

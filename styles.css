@@ -81,14 +81,6 @@ Main CSS
 ================
 */
 
-/* 
-
-Used https://www.marcbacon.com/tools/clamp-calculator/ to generate clamps
-All based off of 428 or 728 min px
-Target values using rem set to a base of 10px
-
-*/
-
 body {
   display: flex;
   justify-content: center;
@@ -153,8 +145,17 @@ Author Info
 }
 
 .content__author > img {
-  max-width: 3.5rem;
+  align-self: center;
+  max-width: 3rem;
+  max-height: 3rem;
   border-radius: 100%;
+}
+
+@media only screen and (max-width: 450px) {
+  .content__author > img {
+    max-width: 2.6rem;
+    max-height: 2.6rem;
+  }
 }
 
 .content__author .col :nth-child(1) {
@@ -171,6 +172,12 @@ Author Info
   padding-left: .8rem;
 }
 
+@media only screen and (max-width: 340px) {
+  .content__author .col {
+    padding-left: .3rem;
+  }
+}
+
 /* 
 ================
 Share Modal
@@ -179,7 +186,7 @@ Share Modal
 
 .share-modal {
   display: flex;
-  gap: .5rem;
+  gap: .8rem;
 
   padding: var(--content-padding);
   padding-top: 1.5rem;
@@ -187,16 +194,22 @@ Share Modal
 
   border-radius: 0 0 1rem 1rem;
   background-color: var(--dark-gray-blue);
+
+  min-width: 14rem;
 }
 
 @media only screen and (min-width: 950px) {
   .share-modal {
     position: absolute;
-    top: -50%;
-    left: 70%;
-    transform: translateY(-10%);
+    top: -80%;
+    left: 68%;
     border-radius: 1rem;
-    min-width: 14rem;
+  }
+}
+
+@media only screen and (min-width: 1284px) {
+  .share-modal {
+    left: 73%;
   }
 }
 
@@ -204,16 +217,6 @@ Share Modal
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 3px;
-}
-
-.share-modal button {
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-}
-
-.share-modal button {
-  flex-shrink: 0;
 }
 
 /* 
@@ -228,6 +231,7 @@ Share Button
 
 .content__footer-container > button {
   position: absolute;
+
   left: 85%;
   top: 25%;
 
@@ -236,33 +240,39 @@ Share Button
 
   border: none;
   border-radius: 100%;
-  min-width: 2.5rem;
+  min-width: 2.6rem;
   aspect-ratio: 1 / 1;
   cursor: pointer;
 }
 
-.content__footer-container > button > svg {
+@media only screen and (max-width: 450px) {
+  .content__footer-container > button {
+    min-width: 2rem;
+  }
+}
+
+.article__share-btn > svg {
   align-self: center;
 }
 
-.is-sharing {
+.article__share-btn[aria-expanded="true"] {
   background-color: var(--gray-blue);
 }
 
-.is-sharing svg {
+.article__share-btn[aria-expanded="true"] svg {
   fill: #fff;
 }
 
-.not-sharing svg {
+.article__share-btn[aria-expanded="false"] svg {
   fill: #6E8098;
 }
 
-.not-sharing:hover svg {
+.article__share-btn[aria-expanded="false"]:hover svg {
   fill: #fff;
 }
 
-.is-sharing:hover,
-.not-sharing:hover {
+.article__share-btn[aria-expanded="true"]:hover,
+.article__share-btn[aria-expanded="false"]:hover {
   background-color: var(--dark-blue);
 }
 
